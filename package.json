@@ -1,0 +1,35 @@
+{
+  "name": "vision-skill",
+  "version": "1.0.0",
+  "description": "让没有原生识图能力的模型获得识图能力，支持自动图片压缩防止 token 爆量",
+  "main": "vision.js",
+  "bin": {
+    "vision": "vision.js"
+  },
+  "files": [
+    "vision.js",
+    "SKILL.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --check vision.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "vision",
+    "ocr",
+    "qwen",
+    "dashscope",
+    "codex",
+    "skill",
+    "image"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "sharp": "^0.33.4"
+  }
+}
