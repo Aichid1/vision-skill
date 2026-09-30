@@ -44,7 +44,7 @@ node vision.js --url "<图片链接>" "这张图片里有什么？"
 脚本通过环境变量或同目录 `.env` 文件读取配置：
 
 - `DASHSCOPE_API_KEY`：阿里云百炼 API Key（默认服务商）
-- `VISION_MODEL`：视觉模型名，例如 `qwen3.5-omni-plus` / `qwen-vl-max` / `gpt-4o-mini`
+- `VISION_MODEL`：视觉模型名，默认 `qwen3.7-plus`；其他可选 `qwen3.5-omni-plus` / `qwen-vl-max` / `gpt-4o-mini`
 - `DASHSCOPE_BASE_URL`：非千问服务时改成对应 OpenAI 兼容地址
 - `VISION_MAX_DIM`：图片最长边上限（像素），默认 `2048`，超出自动缩放
 - `VISION_MAX_BYTES`：图片体积上限（字节），默认 `4194304`（4MB），超出自动压缩

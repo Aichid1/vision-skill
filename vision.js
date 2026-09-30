@@ -26,9 +26,9 @@ const https = require("https");
 const http = require("http");
 const { spawn } = require("child_process");
 
-// 尝试加载 .env（先找当前目录，再找脚本所在目录）
-try { require("dotenv").config(); } catch {}
-try { require("dotenv").config({ path: path.resolve(__dirname, ".env") }); } catch {}
+// 尝试加载 .env（先找当前目录，再找脚本所在目录）；.env 中的值优先于继承的环境变量
+try { require("dotenv").config({ override: true }); } catch {}
+try { require("dotenv").config({ path: path.resolve(__dirname, ".env"), override: true }); } catch {}
 
 // Fallback loader so a local .env works even when the dotenv package is not installed
 function loadEnvFile(file) {
@@ -46,14 +46,14 @@ function loadEnvFile(file) {
       } else {
         val = val.replace(/\s+#.*$/, "");
       }
-      if (process.env[key] === undefined) process.env[key] = val;
+      process.env[key] = val; // .env 优先于继承的环境变量
     }
   } catch {}
 }
 loadEnvFile(path.resolve(__dirname, ".env"));
 const BASE_URL = process.env.DASHSCOPE_BASE_URL || "https://dashscope.aliyuncs.com/compatible-mode/v1";
 const API_KEY = process.env.DASHSCOPE_API_KEY || "sk-xxx";
-const MODEL = process.env.VISION_MODEL || "xxx";
+const MODEL = process.env.VISION_MODEL || "qwen3.7-plus";
 
 // ---- 图片大小限制（可用环境变量覆盖）----
 const MAX_DIM = Math.max(512, parseInt(process.env.VISION_MAX_DIM, 10) || 2048);              // 最长边上限(px)

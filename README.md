@@ -31,7 +31,7 @@ cp .env.example .env
 
 ```dotenv
 DASHSCOPE_API_KEY=sk-xxx
-VISION_MODEL=qwen-vl-max
+VISION_MODEL=qwen3.7-plus
 ```
 
 也可以直接用环境变量：`export DASHSCOPE_API_KEY=sk-xxx`
@@ -53,7 +53,7 @@ node vision.js --url "https://example.com/a.jpg" "这张图片里有什么？"
 | 环境变量 | 默认值 | 说明 |
 |---|---|---|
 | `DASHSCOPE_API_KEY` | - | 视觉模型 API Key（必填） |
-| `VISION_MODEL` | `qwen-vl-max` | 视觉模型名 |
+| `VISION_MODEL` | `qwen3.7-plus` | 视觉模型名 |
 | `DASHSCOPE_BASE_URL` | `https://dashscope.aliyuncs.com/compatible-mode/v1` | OpenAI 兼容 API 地址 |
 | `VISION_MAX_DIM` | `2048` | 图片最长边上限(px)，超出自动缩放 |
 | `VISION_MAX_BYTES` | `4194304` | 图片体积上限(Byte)，超出自动压缩 |
